@@ -1,6 +1,6 @@
 "use strict";
 function editCultures() {
-  const cultureTypes = ["Generic", "River", "Lake", "Naval", "Nomadic", "Hunting", "Highland"];
+  const cultureTypes = pack.cultureTypes;
   if (customization) return;
   closeDialogs("#culturesEditor, .stable");
   if (!layerIsOn("toggleCultures")) toggleCultures();
@@ -173,7 +173,7 @@ function editCultures() {
 
   function getTypeOptions(type) {
     let options = "";
-    cultureTypes.forEach(t => (options += `<option ${type === t ? "selected" : ""} value="${t}">${t}</option>`));
+    cultureTypes.forEach((t, i) => (options += `<option ${type === i ? "selected" : ""} value="${i}">${t.name}</option>`));
     return options;
   }
 
@@ -290,8 +290,8 @@ function editCultures() {
 
   function cultureChangeType() {
     const culture = +this.parentNode.dataset.id;
-    this.parentNode.dataset.type = this.value;
-    pack.cultures[culture].type = this.value;
+    this.parentNode.dataset.type = parseInt(this.value);
+    pack.cultures[culture].type = parseInt(this.value);
     recalculateCultures();
   }
 

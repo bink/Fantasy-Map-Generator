@@ -121,6 +121,8 @@ let rulers = new Rulers();
 let customization = 0;
 
 let biomesData = applyDefaultBiomesSystem();
+let cultureTypes = applyDefaultCultureTypes();
+pack.cultureTypes = cultureTypes;
 let nameBases = Names.getNameBases(); // cultures-related data
 
 let color = d3.scaleSequential(d3.interpolateSpectral); // default color scheme
@@ -445,6 +447,39 @@ function applyDefaultBiomesSystem() {
   }
 
   return {i: d3.range(0, name.length), name, color, biomesMartix, habitability, iconsDensity, icons, cost};
+}
+
+function applyDefaultCultureTypes()
+{
+  let cultureTypes = [];
+  const names = ["Generic", "River", "Lake", "Naval", "Nomadic", "Hunting", "Highland"];
+  const expansionisms = [1, 0.9, 0.8, 1.5, 1.5, 0.7, 1.2];
+  const heightPenaltyList = [
+    [{height: 0,penalty:0,areaMultiplier:6},{height:20,penalty:0},{height:44,penalty:30},{height:67,penalty:200}],
+    [{height: 0,penalty:0,areaMultiplier:6},{height:20,penalty:0},{height:44,penalty:30},{height:67,penalty:200}],
+    [{height: 0,penalty:0,areaMultiplier:6},{height:20,penalty:0},{height:44,penalty:30},{height:67,penalty:200}],
+    [{height: 0,penalty:0,areaMultiplier:2},{height:20,penalty:0},{height:44,penalty:30},{height:67,penalty:200}],
+    [{height: 0,penalty:0,areaMultiplier:50},{height:20,penalty:0},{height:44,penalty:30},{height:67,penalty:200}],
+    [{height: 0,penalty:0,areaMultiplier:6},{height:20,penalty:0},{height:44,penalty:30},{height:67,penalty:200}],
+    [{height: 0,penalty:0,areaMultiplier:6},{height:20,penalty:3000},{height:44,penalty:200},{height:62,penalty:0}]
+  ];
+  for (let i = 0; i < names.length; i++) {
+    const name = names[i];
+    const expansionism = expansionisms[i];
+    const nativeBiomePenalty = 10; // Default native biome penalty for all default cultures
+    const nonNativeBiomePenalty = (name === "Hunting") ? 5 : 2;
+    const riverPenaltyMin = (name === "River") ? 0 : 20;
+    const riverPenaltyMax = (name === "River") ? 0 : 100;
+    const heightPenalties = heightPenaltyList[i];
+    const biomePenalties = [];
+    const coastLinePenalty = (name === "Naval" || name === "Lake" ? 0 : name === "Nomadic" ? 60 : 20);
+    const landPenalty = (name === "Naval" || name === "Nomadic" ? 30 : 0);
+    const waterNearCoastPenalty = (name === "Naval" || name === "Lake" ? 100 : 0);
+
+    let type = {name, expansionism, nativeBiomePenalty, nonNativeBiomePenalty, riverPenaltyMin, riverPenaltyMax, heightPenalties, biomePenalties, coastLinePenalty, landPenalty, waterNearCoastPenalty};
+    cultureTypes.push(type);
+  }
+  return cultureTypes;
 }
 
 function showWelcomeMessage() {
