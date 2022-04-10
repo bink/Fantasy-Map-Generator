@@ -452,9 +452,10 @@ function applyDefaultBiomesSystem() {
 function applyDefaultCultureTypes()
 {
   let cultureTypes = [];
-  const names = ["Generic", "River", "Lake", "Naval", "Nomadic", "Hunting", "Highland"];
-  const expansionisms = [1, 0.9, 0.8, 1.5, 1.5, 0.7, 1.2];
+  const names = ["Wildlands","Generic", "River", "Lake", "Naval", "Nomadic", "Hunting", "Highland"];
+  const expansionisms = [0,1, 0.9, 0.8, 1.5, 1.5, 0.7, 1.2];
   const heightPenaltyList = [
+    [{height: 0,penalty:0,areaMultiplier:6},{height:20,penalty:0},{height:44,penalty:30},{height:67,penalty:200}],
     [{height: 0,penalty:0,areaMultiplier:6},{height:20,penalty:0},{height:44,penalty:30},{height:67,penalty:200}],
     [{height: 0,penalty:0,areaMultiplier:6},{height:20,penalty:0},{height:44,penalty:30},{height:67,penalty:200}],
     [{height: 0,penalty:0,areaMultiplier:6},{height:20,penalty:0},{height:44,penalty:30},{height:67,penalty:200}],
