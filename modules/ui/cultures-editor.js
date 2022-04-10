@@ -36,6 +36,7 @@ function editCultures() {
   document.getElementById("culturesManuallyApply").addEventListener("click", applyCultureManualAssignent);
   document.getElementById("culturesManuallyCancel").addEventListener("click", () => exitCulturesManualAssignment());
   document.getElementById("culturesEditNamesBase").addEventListener("click", editNamesbase);
+  document.getElementById("culturesEditCultureTypes").addEventListener("click",editCultureTypes);
   document.getElementById("culturesAdd").addEventListener("click", enterAddCulturesMode);
   document.getElementById("culturesExport").addEventListener("click", downloadCulturesData);
   document.getElementById("culturesImport").addEventListener("click", () => document.getElementById("culturesCSVToLoad").click());

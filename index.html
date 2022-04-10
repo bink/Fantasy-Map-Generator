@@ -2850,6 +2850,7 @@
           <button id="culturesManuallyCancel" data-tip="Cancel assignment" class="icon-cancel"></button>
         </div>
         <button id="culturesEditNamesBase" data-tip="Edit a database used for names generation" class="icon-font"></button>
+        <button id="culturesEditCultureTypes" data-tip="Edit available culture types" class="icon-tag"></button>
         <button id="culturesAdd" data-tip="Add a new culture. Hold Shift to add multiple" class="icon-plus"></button>
         <button id="culturesExport" data-tip="Download cultures-related data" class="icon-download"></button>
         <button id="culturesImport" data-tip="Upload cultures-related data" class="icon-upload"></button>
@@ -2858,6 +2859,62 @@
           <input id="culturesAutoChange" class="checkbox" type="checkbox">
           <label for="culturesAutoChange" class="checkbox-label"><i>auto-apply changes</i></label>
         </span>
+      </div>
+    </div>
+
+    <div id="cultureTypesEditor" class="dialog stable textual" style="display: none">
+      <div id="cultureTypesHeader" class="header">
+        <div style="left:1.8em" data-tip="Click to sort by culture type name" class="sortable alphabetically" data-sortby="name">Culture type&nbsp;</div>
+        <div style="left:8.3em" data-tip="Click to sort by expansionism" class="sortable hide" data-sortby="expansionism">Expan.&nbsp;</div>
+        <div style="left:19.7em" data-tip="Click to sort by native biome penalty" class="sortable alphabetically" data-sortby="type">Native Pen.&nbsp;</div>
+        <div style="left:26em" data-tip="Click to sort by non-native biome penalty" class="sortable hide" data-sortby="area">Non-native Pen.&nbsp;</div>
+      </div>
+      <div id="cultureTypesBody" class="table" data-type="absolute"></div>
+    </div>
+
+    <div id="cultureTypePenaltiesEditor" class="dialog" style="display: none">
+      <div id="cultureTypePenaltiesBody" class="" data-type="">
+        <div data-tip="Native biome penalty">
+          <div class="label">Native biome penalty:</div>
+          <input id="nativeBiomePenalty" type="number" min=0 max=99 step=.1 />
+        </div>
+        <div data-tip="Non-native biome penalty">
+          <div class="label">Non-native biome penalty:</div>
+          <input id="nonNativeBiomePenalty" type="number" min=0 max=99 step=.1 />
+        </div>
+        <div data-tip="Minimum river penalty">
+          <div class="label">River penalty (min):</div>
+          <input id="riverPenaltyMin" type="number" min=0 max=99 step=.1 />
+        </div>
+        <div data-tip="Maximum river penalty">
+          <div class="label">River penalty (max):</div>
+          <input id="riverPenaltyMax" type="number" min=0 max=99 step=.1 />
+        </div>
+        <div data-tip="Height penalties">
+          <div class="label">Height penalties</div>
+          <div id="heightPenaltiesHeader" class="header">
+            <div style="left:1.8em" data-tip="The height that this penaly is active from">Height&nbsp;</div>
+            <div style="left:8.3em" data-tip="The amount of the penalty">Penalty&nbsp;</div>
+          </div>
+          <div class="table" id="heightPenalties">
+
+          </div>
+          <div id="heightPenaltiesBottom">
+            <button id="heightPenaltiesAdd" data-tip="Add a new height penalty" class="icon-plus"></button>
+          </div>
+        </div>
+        <div data-tip="Biome penalties">
+          <div class="label">Biome penalties</div>
+          <div id="biomePenaltiesHeader" class="header">
+            <div style="left:1.8em" data-tip="Click to sort by biome name" class="sortable" data-sortby="biomeName">Biome</div>
+            <div style="left:8.3em" data-tip="The amount of the penalty for this biome">Penalty</div>
+          </div>
+          <div class="table" id="biomePenalties">
+          </div>
+          <div id="biomePenaltiesBottom">
+            <button id="biomePenaltiesAdd" data-tip="Add a new biome penalty" class="icon-plus"></button>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -4547,6 +4604,8 @@
   <script defer src="modules/ui/provinces-editor.js"></script>
   <script defer src="modules/ui/biomes-editor.js"></script>
   <script defer src="modules/ui/cultures-editor.js"></script>
+  <script defer src="modules/ui/culturetypes-editor.js"></script>
+  <script defer src="modules/ui/culturetypepenalties-editor.js"></script>
   <script defer src="modules/ui/namesbase-editor.js"></script>
   <script defer src="modules/ui/elevation-profile.js"></script>
   <script defer src="modules/ui/temperature-graph.js"></script>
