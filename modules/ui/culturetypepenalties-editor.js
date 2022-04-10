@@ -9,8 +9,6 @@ function editCultureTypePenalties(id) {
 
 	console.log("setting culture type id to "+id);
 	const cultureTypeId = id;
-	//console.log(cultureTypeId);
-	//const cultureType = pack.cultureTypes[id];
 
 	$("#cultureTypePenaltiesEditor").attr("cultureTypeId",id);
 
@@ -167,7 +165,6 @@ function editCultureTypePenalties(id) {
 	function biomePenaltyChangeBiome() {
 		const bp = +this.parentNode.dataset.id;
 		getCultureType().biomePenalties[bp].biome = this.value;
-		console.log(getCultureType());
 		updatePenaltyData();
 	}
 
