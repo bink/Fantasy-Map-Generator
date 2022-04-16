@@ -1470,6 +1470,14 @@ div.states > .culturePopulation {
   cursor: pointer;
 }
 
+div.states > .cultureTypeName {
+  width: 8em;
+}
+
+div.states > .cultureTypeExpansionism {
+  width: 8em;
+}
+
 div.states > select {
   width: 4.6em;
   cursor: pointer;

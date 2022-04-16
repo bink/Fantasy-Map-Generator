@@ -34,7 +34,7 @@ function editCultureTypes() {
 	function cultureTypesEditorAddLines() {
 		let lines = "";
 		for (const [i,c] of pack.cultureTypes.entries()) {
-			lines += `<div class="states cultureTypes" data-id="${i}" data-name="${c.name}" data-expansionism="${c.expansionism}">
+			lines += `<div class="states cultures cultureTypes" data-id="${i}" data-name="${c.name}" data-expansionism="${c.expansionism}">
 				<input data-tip="Culture type name. Click and type to change" class="cultureTypeName" value="${c.name}" autocorrect="off" spellcheck="false">
 				<input data-tip="Culture type expansionism. Defines competitive size. Click to change" class="cultureTypeExpansionism" class="statePower hide" type="number" min=0 max=99 step=.1 value="${c.expansionism}">
         		<span data-tip="Edit penalties" class="cultureTypeEditPenalties icon-pencil"></span>
