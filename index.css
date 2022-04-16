@@ -1585,6 +1585,15 @@ div.states > .riverType {
   width: 7em;
 }
 
+#cultureTypePenaltiesBody div.label {
+  display: inline-block;
+  width: 15em;
+}
+
+#biomePenalties select.biomePenaltyBiome {
+  width: 12em;
+}
+
 #stateNameEditor div.label,
 #provinceNameEditor div.label,
 #regimentBody div.label,
