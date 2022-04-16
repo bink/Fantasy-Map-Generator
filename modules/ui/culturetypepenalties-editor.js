@@ -7,7 +7,6 @@ function editCultureTypePenalties(id) {
 	const heightPenaltiesBody = document.getElementById("heightPenalties");
 	const biomePenaltiesBody = document.getElementById("biomePenalties");
 
-	console.log("setting culture type id to "+id);
 	const cultureTypeId = id;
 
 	$("#cultureTypePenaltiesEditor").attr("cultureTypeId",id);
