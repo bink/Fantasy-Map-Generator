@@ -22,10 +22,6 @@ function editCultureTypes() {
 	});
 	body.focus();
 
-	// add listeners
-	body.querySelectorAll("div > input.cultureTypeName").forEach(el => el.addEventListener("input",cultureTypeChangeName));
-	body.querySelectorAll("div > input.cultureTypeExpansionism").forEach(el => el.addEventListener("change",cultureTypeChangeExpansionism));
-	body.querySelectorAll("div > .cultureTypeEditPenalties").forEach(el => el.addEventListener("click",openPenaltyEditor));
 
 	function refreshCultureTypesEditor() {
 		cultureTypesEditorAddLines();
@@ -41,6 +37,11 @@ function editCultureTypes() {
 			</div>`;
 		}
 		body.innerHTML = lines;
+		
+		// add listeners
+		body.querySelectorAll("div > input.cultureTypeName").forEach(el => el.addEventListener("input",cultureTypeChangeName));
+		body.querySelectorAll("div > input.cultureTypeExpansionism").forEach(el => el.addEventListener("change",cultureTypeChangeExpansionism));
+		body.querySelectorAll("div > .cultureTypeEditPenalties").forEach(el => el.addEventListener("click",openPenaltyEditor));
 
 		applySorting(cultureTypesHeader);
 		$("#cultureTypesEditor").dialog({width: fitContent()});
